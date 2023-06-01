@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    
+        .container{
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: -100px;
+            
+        }
+        .calculator{
+            width: 300px;
+            background-color: rgb(97, 97, 100);
+            padding: 15px;
+            border-radius: 20px;
+            box-shadow:inset rgb(110, 110, 110);
+            display: grid;
+            grid-template-columns: repeat(4,68px);
+        }
+        input{
+            grid-column: span 4;
+            height: 70px;
+            width: 260px;
+            background-color: rgb(231, 231, 241);
+            border-radius: 30px;
+            color: rgba(70,70,70);
+            font-size: 50px;
+            margin: auto;
+            margin-top: 40px;
+            margin-bottom: 30px;
+            padding: 20px;
+        }
+        button{
+            height: 48px;
+            width: 48;
+            border-radius: 40%;
+            font-size: 16px;
+            cursor:pointer;
+        }
+        .equal{
+            width: 130px;
+            border-radius: 30px;
+            background-color: rgb(248, 72, 2);
+            color: white;
+        }
+        h1{
+            color: rgb(255, 72, 0);
+            text-align: center;
+            padding-top: 100px;
+            font-family: fantasy;
+            font-size: 50px;
+        }
+        #out_screen{
+            background-color: rgb(251, 251, 255);
+        }
+    </style>
+   
+</head>
+<body>
+    <h1>CALCULATOR</h1>
+    <br>
+    <div class="container">
+        <div class="calculator">
+             <input type="text" placeholder="0" id="out_screen">
+             <button onclick="Clear()">C</button>
+             <button onclick="del()">DEl</button>
+             <button onclick="display('%')">%</button>
+             <button onclick="display('/')">/</button>
+             <button onclick="display('9')">9</button>
+             <button onclick="display('8')">8</button>
+             <button onclick="display('7')">7</button>
+             <button onclick="display('*')">*</button>
+             <button onclick="display('6')">6</button>
+             <button onclick="display('5')">5</button>
+             <button onclick="display('4')">4</button>
+             <button onclick="display('-')">-</button>
+             <button onclick="display('3')">3</button>
+             <button onclick="display('2')">2</button>
+             <button onclick="display('1')">1</button>
+             <button onclick="display('+')">+</button>
+             <button onclick="display('.')">.</button>
+             <button onclick="display('0')">0</button>
+             <button onclick="equal()"class="equal">=</button>    
+             
+        </div>
+    </div>
+<script>
+    let outputScreen = document.getElementById("out_screen")
+    function display(num){
+        outputScreen.value += num
+    }
+    function calculate(){
+    try{
+        outputScreen.value = eval
+        (outputScreen.value);
+    }
+    catch(err)
+    {
+        alert("Invalid")
+    }
+    }
+    function Clear(){
+        outputScreen.value ="";
+    }
+    function del(){
+        outputScreen.value = outputScreen.value
+        .slice(0,-1)
+    }
+    function equal(){
+      if(out_screen.value === ''){
+        out_screen.value = "";
+      }
+      else{
+        let answer = eval(out_screen.value);
+        out_screen.value = answer;
+      }
+    }
+
+
+
+</script>
+   
+    
+</body>
+</html>
